@@ -117,7 +117,7 @@
       $('.menu>ul>li').mouseenter(function () {
         //谁触发了鼠标移入事件,this就是谁
         //this还是dom对象
-          $(this).children('ul').slideDown(200);
+          $(this).children('ul').stop(true,false).slideDown(200);
       })
       $('.menu>ul>li').mouseleave(function () {
           $(this).children('ul').slideUp(200);
