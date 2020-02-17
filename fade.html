@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出</title>
+    <script src="jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="淡入" id="slidedown">
+<input type="button" value="淡出" id="slideup">
+<input type="button" value="切换" id="slidetoggle">
+</br>
+</br>
+<div id="div1"
+     style="width: 100px;
+height: 100px;
+background: #5a8899;
+">
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+    $(function () {
+
+
+        $('#slidedown').click(
+            function () {
+
+                $('#div1').fadeIn(200,function () {
+
+                });
+
+            }
+        )
+
+
+
+        $('#slideup').click(
+            function () {
+                $('#div1').fadeOut(200,function () {
+
+                });
+
+            }
+        );
+
+        $('#slidetoggle').click(function () {
+            $('#div1').fadeToggle(100);
+        })
+    });
+</script>
