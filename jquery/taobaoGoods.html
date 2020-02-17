@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淘宝精品图</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        li{
+            padding: auto;
+            list-style-type: none;
+        }
+        .wrapper{
+            margin: auto;
+            margin-left: 40%;
+            margin-top: 200px;
+            background: #b6cddc;
+        }
+        #center li{
+            display: none;
+        }
+        #center{
+            width: 400px;
+            height: 300px;
+            border: 1px solid pink;
+            border-right: 1px solid pink;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        #left li,#right li{
+            width: 70px;
+            height: 99px;
+            text-align: center;
+            list-style-type: none;
+            border: 1px solid pink;
+            border-right: 1px solid pink;
+            background: #ffdcdc;
+            margin-left: 0px;
+            /*float: top;*/
+        }
+        #left,#center,#right{
+            margin-left: 0px;
+            float: left;
+            padding: 0px;
+        }
+        img{
+            width: 400px;
+            height: 300px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <ul id="left">
+        <li><a href="#">佳能</a></li>
+        <li><a href="#">索尼</a></li>
+        <li><a href="#">松下</a></li>
+    </ul>
+    <ul id="center">
+        <li><img src="images/canon.jpg"></li>
+        <li><img src="images/sony.jpg"></li>
+        <li><img src="images/Lumix.jpg"></li>
+        <li><img src="images/BMPCC.jpg"></li>
+        <li><img src="images/leica.jpg"></li>
+        <li><img src="images/arri.jpg"></li>
+    </ul>
+    <ul id="right">
+        <li><a href="#">BMPCC</a></li>
+        <li><a href="#">莱卡</a></li>
+        <li><a href="#">阿莱</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    $(function () {
+
+        $('#left>li,#right>li').mouseenter(function () {
+            $(this).css({
+                'background':'skyblue',
+            })
+        })
+        $('#left>li,#right>li').mouseleave(function () {
+            $(this).css({
+                'background':'#ffdcdc',
+            })
+        })
+
+        //不能设置a标签的移入事件，因为li下的a标签都没有兄弟节点
+        //所以a标签索引都是0，不能拿到正确的索引
+        $('#left>li').mouseenter(function () {
+            //索引表示的是在兄弟节点之间的排行
+            var index=$(this).index();
+            // $('#center>li:eq('     +     index   +  ')'     );//字符串的拼接
+            $('#center>li').eq(index).show().siblings('li').hide();//eq方法
+        })
+        $('#right>li').mouseenter(function () {
+            //索引表示的是在兄弟节点之间的排行
+            var index=$(this).index();
+            index+=3;
+            // $('#center>li:eq('     +     index   +  ')'     );//字符串的拼接
+            $('#center>li').eq(index).show().siblings('li').hide();//eq方法
+        })
+    })
+</script>
