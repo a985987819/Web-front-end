@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ分组</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+        }
+        li{
+            width: 400px;
+            list-style-type: none;
+            background: #5a8899;
+            padding-top: 3px;
+            border-left: 1px black solid;
+            border-right: 1px black solid;
+            margin-bottom: 1px;
+        }
+        div{
+            width: 400px;
+            height: 90px;
+            border: 1px bisque solid;
+            background: #b6cddc;
+            text-align: center;
+        }
+    </style>
+</head>
+<body >
+    <ul class="menu">
+        <li class="menugroup">
+            <span class="title">分组1</span>
+            <div style="display: none">我是分组1的好友</div>
+        </li>
+        <li class="menugroup">
+            <span class="title">分组2</span>
+            <div style="display: none">我是分组2的好友</div>
+        </li>
+        <li class="menugroup">
+            <span class="title">分组3</span>
+            <div style="display: none">我是分组3的好友</div>
+        </li>
+        <li class="menugroup">
+            <span class="title">分组4</span>
+            <div style="display: none">我是分组4的好友</div>
+        </li>
+    </ul>
+</body>
+</html>
+
+<script src="jquery-3.4.1.js"></script>
+<script>
+
+    $(function () {
+        $('.menu>.menugroup').click(
+            function () {
+                //点击后都可以看到其他
+                $(this).children('div').show();
+                // $(this).children('div').css('display','block');
+                //点击以后收起其他
+                // $(this).children('div').show().parent().siblings().hide();
+            }
+        )
+    })
+</script>
