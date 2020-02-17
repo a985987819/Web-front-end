@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <script src="jquery-3.4.1.js"></script>
+</head>
+
+<body>
+
+<input type="button" value="从左到右800" id="move">
+
+</br>
+</br>
+<div id="div1"
+     style="
+width: 100px;
+height: 100px;
+background: #5a8899;
+position: absolute;
+left: 20px;
+opacity: 1;
+">
+
+</div>
+
+</body>
+</html>
+
+<script>
+
+    $(function () {
+//参数1：必选的 对象
+//参数2：可选的 动画执行时长
+//参数3：可选的 easing 代表缓动还是匀速     linear swing
+//参数4：动画执行完毕的回调函数
+        $('#move').click(function () {
+                $('#div1').animate({
+                    left:800,
+                    opacity:0.5,
+                    width:200,
+                    height:200,
+                },1000,'swing',function(){
+                    $('#div1').animate({
+                        left:400,
+                        opacity:1,
+                        width:300,
+                        height:100,
+                    },300,'linear')
+                });
+            });
+
+    });
+</script>
