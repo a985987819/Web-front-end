@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="jquery-3.4.1.js"></script>
+    <title>城市选择</title>
+    <style>
+        select{
+            height: 200px;
+            width: 100px;
+            background-color: lightslategray;
+        }
+        div{
+            float: left;
+        }
+        button{
+            position:inherit;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>城市选择:</h1>
+    <div>
+        <select name="src-city" id="src-city" multiple>
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">广州</option>
+            <option value="4">深圳</option>
+            <option value="5">杭州</option>
+        </select>
+    </div>
+    
+
+    <div class="btn-box">
+        <button id="btn-sel-all">&gt;&gt;</button>
+        <button id="btn-sel-none">&lt;&lt;</button>
+        <button id="btn-sel">&gt;</button>
+        <button id="btn-back">&lt;</button>
+    </div>
+    <div>
+        <select id="tar-city" name="tar-city" multiple>
+
+        </select>
+    </div>
+</div>
+    
+    
+</body>
+</html>
+<script>
+    $(function(){
+        //1.全部到右边
+        $('#btn-sel-all').click(function () { 
+            $('#src-city>option').appendTo($('#tar-city'));
+         });
+         //2.全部到左边
+         $('#btn-sel-none').click(function () { 
+             $('#tar-city>option').appendTo($('#src-city'));
+          });
+            //3.选中的到右边
+          $('#btn-sel').click(function () { 
+             $('#src-city>option:selected').appendTo($('#tar-city'));
+           });
+           //4.选中到左边
+           $('#btn-back').click(function () { 
+             $('#tar-city>option:selected').appendTo($('#src-city'));
+           });
+    });
+
+</script>
