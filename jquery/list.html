@@ -19,6 +19,7 @@
             margin-left: 20px;
             height: 100%;
             width: 1500px;
+            
             /* background-color: rgb(245, 245, 245); */
         }
         .list{
@@ -32,6 +33,9 @@
             border:2px solid black;
             border-radius: 20px;
             box-shadow: 2px 2px 2px  #555555;   
+            display: flex;  
+            justify-content: center;   
+            align-items: center; 
             /* position: absolute; */
         }
         
@@ -219,26 +223,27 @@
                     function(){
                         //飞入行内
                         for(j=1;j<$('.list').children('div').length+1;j++){
+                            // (function () { 
+                            //     setTimeout(function () { 
+                            //         linein()
+                            //      },200)
+                            //  })(j)
                             linein()
-                            
                         }
                     },200)
                 //飞入每行
                 zoomin()
             }
 
-            for(z=1;z<$('#left').children('a').length+1;z++){
+            
                 setTimeout(
-                function () { 
-                    $('#nav'+z).animate
-                    (
-                    {
-                        marginLeft:20,},800,'swing')
-                    }
-                    ,600
-                )
+                    function () { 
+                        for(z=1;z<$('#left').children('a').length+1;z++){
+                            $('#nav'+z).animate({marginLeft:80,},800,'swing')
+                        }
+                    },200)
                 console.log('当前z的值为:'+z)
-            }
+            
             
             
             
