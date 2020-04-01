@@ -36,3 +36,11 @@
 2. 更改.babelrc里面的代码，之前的env变为@babel/preset-env，react变为@babel/preset-react，transform-runtime变为@babel/plugin-transform-runtime
 
 之后再打包就好了
+
+
+
+
+打包图片出错
+报错信息为：Error: Cannot find module 'file-loader'
+经过排查发现是因为代码里面的“loader: 'url-loader?limit=8192'”
+问号后面的出错了，把后面的限制删除以后就可以用了
